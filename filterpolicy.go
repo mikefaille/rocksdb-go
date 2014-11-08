@@ -5,7 +5,7 @@ package levigo
 // #include "rocksdb/c.h"
 import "C"
 
-// FilterPolicy is a factory type that allows the LevelDB database to create a
+// FilterPolicy is a factory type that allows the RocksDB database to create a
 // filter, such as a bloom filter, that is stored in the sstables and used by
 // DB.Get to reduce reads.
 //

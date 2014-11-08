@@ -16,7 +16,7 @@ func init() {
 
 // This testcase is a port of rocksdb's c_test.c.
 func TestC(t *testing.T) {
-	if GetLevelDBMajorVersion() <= 0 {
+	if GetRocksDBMajorVersion() <= 0 {
 		t.Errorf("Major version cannot be less than zero")
 	}
 

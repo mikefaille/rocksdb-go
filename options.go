@@ -114,7 +114,7 @@ func (o *Options) SetWriteBufferSize(s int) {
 // aggressive checking of the data it is processing and will stop early if it
 // detects errors.
 //
-// See the LevelDB documentation docs for details.
+// See the RocksDB documentation docs for details.
 func (o *Options) SetParanoidChecks(pc bool) {
 	C.rocksdb_options_set_paranoid_checks(o.Opt, boolToUchar(pc))
 }
@@ -122,7 +122,7 @@ func (o *Options) SetParanoidChecks(pc bool) {
 // SetMaxOpenFiles sets the number of files than can be used at once by the
 // database.
 //
-// See the LevelDB documentation for details.
+// See the RocksDB documentation for details.
 func (o *Options) SetMaxOpenFiles(n int) {
 	C.rocksdb_options_set_max_open_files(o.Opt, C.int(n))
 }
@@ -130,7 +130,7 @@ func (o *Options) SetMaxOpenFiles(n int) {
 // SetBlockSize sets the approximate size of user data packed per block.
 //
 // The default is roughly 4096 uncompressed bytes. A better setting depends on
-// your use case. See the LevelDB documentation for details.
+// your use case. See the RocksDB documentation for details.
 func (o *Options) SetBlockSize(s int) {
 	C.rocksdb_options_set_block_size(o.Opt, C.size_t(s))
 }
@@ -138,7 +138,7 @@ func (o *Options) SetBlockSize(s int) {
 // SetBlockRestartInterval is the number of keys between restarts points for
 // delta encoding keys.
 //
-// Most clients should leave this parameter alone. See the LevelDB
+// Most clients should leave this parameter alone. See the RocksDB
 // documentation for details.
 func (o *Options) SetBlockRestartInterval(n int) {
 	C.rocksdb_options_set_block_restart_interval(o.Opt, C.int(n))
@@ -150,7 +150,7 @@ func (o *Options) SetBlockRestartInterval(n int) {
 // The default value is SnappyCompression and it is fast enough that it is
 // unlikely you want to turn it off. The other option is NoCompression.
 //
-// If the LevelDB library was built without Snappy compression enabled, the
+// If the RocksDB library was built without Snappy compression enabled, the
 // SnappyCompression setting will be ignored.
 func (o *Options) SetCompression(t CompressionOpt) {
 	C.rocksdb_options_set_compression(o.Opt, C.int(t))
@@ -180,7 +180,7 @@ func (ro *ReadOptions) Close() {
 // SetVerifyChecksums controls whether all data read with this ReadOptions
 // will be verified against corresponding checksums.
 //
-// It defaults to false. See the LevelDB documentation for details.
+// It defaults to false. See the RocksDB documentation for details.
 func (ro *ReadOptions) SetVerifyChecksums(b bool) {
 	C.rocksdb_readoptions_set_verify_checksums(ro.Opt, boolToUchar(b))
 }
@@ -201,7 +201,7 @@ func (ro *ReadOptions) SetFillCache(b bool) {
 // Snapshot was created by DB.NewSnapshot. This is useful for getting
 // consistent reads during a bulk operation.
 //
-// See the LevelDB documentation for details.
+// See the RocksDB documentation for details.
 func (ro *ReadOptions) SetSnapshot(snap *Snapshot) {
 	var s *C.rocksdb_snapshot_t
 	if snap != nil {
@@ -223,7 +223,7 @@ func (wo *WriteOptions) Close() {
 // with false, and the host machine crashes, some recent writes may be
 // lost. The default is false.
 //
-// See the LevelDB documentation for details.
+// See the RocksDB documentation for details.
 func (wo *WriteOptions) SetSync(b bool) {
 	C.rocksdb_writeoptions_set_sync(wo.Opt, boolToUchar(b))
 }
