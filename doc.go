@@ -59,7 +59,7 @@ If you're using a custom comparator in your code, be aware you may have to
 make your own filter policy object.
 
 This documentation is not a complete discussion of LevelDB. Please read the
-LevelDB documentation <http://code.google.com/p/leveldb> for information on
+LevelDB documentation <http://code.google.com/p/rocksdb> for information on
 its operation. You'll find lots of goodies there.
 */
 package levigo

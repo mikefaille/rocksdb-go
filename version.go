@@ -1,15 +1,15 @@
 package levigo
 
 /*
-#cgo LDFLAGS: -lleveldb
-#include "leveldb/c.h"
+#cgo LDFLAGS: -lrocksdb
+#include "rocksdb/c.h"
 */
 import "C"
 
 func GetLevelDBMajorVersion() int {
-	return int(C.leveldb_major_version())
+	return int(C.rocksdb_major_version())
 }
 
 func GetLevelDBMinorVersion() int {
-	return int(C.leveldb_minor_version())
+	return int(C.rocksdb_minor_version())
 }
